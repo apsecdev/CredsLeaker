@@ -103,8 +103,7 @@ $asTaskGeneric = ([System.WindowsRuntimeSystemExtensions].GetMethods() | ? { $_.
 #[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
 if ($timer) { 
-    $timer = [int]::Parse($timer)
-    $timer = $timer*60
+    $timer = ([int]::Parse($timer))*60
     Start-Sleep -s $timer 
 }
 
