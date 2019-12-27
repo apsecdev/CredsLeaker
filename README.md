@@ -1,4 +1,5 @@
 # CredsLeaker v4.x
+
 This script used to display a powershell credentials box asked the user for credentials.
 However,
 That was highly noticeable. Now it's time to utilize Windows Security popup!
@@ -18,6 +19,7 @@ That was highly noticeable. Now it's time to utilize Windows Security popup!
 - Pipeline and dynamic switching between USB and HTTP export
 - Timed delay for delayed deployment
 - Delayed delivery of leaked credentials if delivery option unaccessible
+
 - *Editable config file to override default params pulled from USB first, Web second (if no USB).  Pipeline option to override config file.
 - *Config file fully editable via web form.
 *Work in progress
@@ -25,13 +27,14 @@ That was highly noticeable. Now it's time to utilize Windows Security popup!
 # Current Work in this Branch
 Adding config file (config.cl) to override default Parameters and to avoid the need for pipeline parameters which allows for customzed runs without havint to edit the batch or powershell scripts.  All config can be done on the fly via config.php.
 
-
 The box cannot be closed (only by killing the process) and will keep on checking the credentials against the DC. If credentials fail at the DC, then they are checked against local SAM so that local accounts are leaked even if the machine is a domain member.  When validated, it will close and process via chosen method.
 
 ![Credentials Leak](https://raw.githubusercontent.com/Dviros/CredsLeaker/master/Screens/Leak.png)
 
 # How To:
+
 1. Start a web server and upload cl_reader.php, config.php, config.cl to desired path
+
 2. Fill out parameter defaults in CredsLeaker.ps1
 3. Edit Pipeline parameters in run.bat to desired scenerio
 4. Execute run.bat file.
